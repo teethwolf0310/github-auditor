@@ -1,0 +1,24 @@
+# secrets
+config.local.yaml
+**/config.local.yaml
+
+# data / cache
+data/
+**/*.db
+**/*.db-journal
+**/*.db-shm
+**/*.db-wal
+
+# python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+venv/
+
+# misc
+*.log
+.DS_Store
+.idea/
+.vscode/

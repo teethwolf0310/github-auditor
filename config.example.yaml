@@ -1,0 +1,43 @@
+# github-auditor 配置示例。复制为 config.local.yaml 并填入 token。
+# config.local.yaml 已被 .gitignore 覆盖，不会被提交。
+
+# ============ GitHub ============
+# 必填：Personal Access Token（classic 或 fine-grained 均可，只需 public_repo 等读权限）。
+# 也可以 export GITHUB_TOKEN=... 由环境变量提供。
+github_token: ""
+
+# 可选：访问 api.github.com 的出口代理。
+# 内网受限机器需要填；本地直连公网可留空。也可以用 GITHUB_PROXY 环境变量覆盖。
+proxy: ""
+
+# 单用户评估的最大请求数预算。默认 19。
+max_requests_per_eval: 19
+
+# per-user repo 翻页上限（每页 100）
+max_repo_pages: 3
+
+# 事件流翻页上限
+max_event_pages: 3
+
+# 用于能力分计算的 top own repos 采样数（按 star+fork 排序）
+top_own_repos_sample: 3
+
+# ============ 存储 ============
+# SQLite 文件所在目录。单机使用放到本地 SSD 即可；避免放在 NFS / CIFS 上（锁易卡）。
+data_dir: "./data"
+
+# raw 抓取快照目录（目前 v1 未启用，仅预留）
+raw_cache_dir: "./data/raw"
+
+# ============ 服务（--serve 模式） ============
+listen_host: "127.0.0.1"
+listen_port: 8010
+
+# ============ 评分权重（总和必须等于 100） ============
+weights:
+  authenticity: 35
+  activity: 20
+  capability: 20
+  breadth: 10
+  longevity: 8
+  identity: 7

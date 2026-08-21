@@ -1,0 +1,15 @@
+# FastAPI/service
+fastapi>=0.110
+uvicorn[standard]>=0.27
+
+# Data & ORM
+sqlalchemy>=2.0
+pydantic>=2.5
+
+# HTTP / utilities
+requests>=2.31
+python-dateutil>=2.8
+PyYAML>=6.0
+
+# Tests
+pytest>=8.0
